@@ -1,1 +1,1 @@
-{"name":"draw_line","x1":10,"y1":10}
+{"func":"init_window","name":"test","color":[100,100,100]}

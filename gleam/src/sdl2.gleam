@@ -3,9 +3,9 @@ import simplifile
 
 pub fn command_to_json() -> String {
   json.object([
-    #("name", json.string("draw_line")),
-    #("x1", json.int(10)),
-    #("y1", json.int(10)),
+    #("func", json.string("init_window")),
+    #("name", json.string("test")),
+    #("color", json.array([100,100,100], of: json.int))
   ])
   |> json.to_string
 }
