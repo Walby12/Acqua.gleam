@@ -7,14 +7,17 @@
 -spec command_to_json() -> binary().
 command_to_json() ->
     _pipe = gleam@json:object(
-        [{<<"func"/utf8>>, gleam@json:string(<<"init_window"/utf8>>)},
-            {<<"name"/utf8>>, gleam@json:string(<<"test"/utf8>>)},
-            {<<"color"/utf8>>,
-                gleam@json:array([100, 100, 100], fun gleam@json:int/1)}]
+        [{<<"func"/utf8>>, gleam@json:string(<<"fill to ppm"/utf8>>)},
+            {<<"pixels"/utf8>>,
+                gleam@json:array([800 * 600], fun gleam@json:int/1)},
+            {<<"width"/utf8>>, gleam@json:int(800)},
+            {<<"height"/utf8>>, gleam@json:int(600)},
+            {<<"color"/utf8>>, gleam@json:int(16#FF00FF00)},
+            {<<"file path"/utf8>>, gleam@json:string(<<"../out.ppm"/utf8>>)}]
     ),
     gleam@json:to_string(_pipe).
 
--file("src/sdl2.gleam", 13).
+-file("src/sdl2.gleam", 16).
 -spec main() -> {ok, nil} | {error, simplifile:file_error()}.
 main() ->
     Content = command_to_json(),
@@ -31,5 +34,5 @@ main() ->
                     message => <<"ERROR: error during metadate as json"/utf8>>,
                     module => <<"sdl2"/utf8>>,
                     function => <<"main"/utf8>>,
-                    line => 20})
+                    line => 23})
     end.

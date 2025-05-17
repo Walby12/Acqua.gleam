@@ -1,1 +1,1 @@
-{"func":"init_window","name":"test","color":[100,100,100]}
+{"func":"fill to ppm","pixels":[480000],"width":800,"height":600,"color":4278255360,"file path":"../out.ppm"}
